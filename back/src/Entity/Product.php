@@ -50,6 +50,10 @@ class Product
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: true, onDelete: "SET NULL")]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -143,5 +147,25 @@ class Product
         return $this->imageName
             ? '/images/products/' . $this->imageName
             : '/images/products/default-product.jpg';
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    #[Groups(['product:read'])]
+    public function getCreatedByLabel(): string
+    {
+        return $this->user
+            ? $this->user->getFirstname() . ' ' . $this->user->getLastname()
+            : 'Un utilisateur supprimé';
     }
 }
