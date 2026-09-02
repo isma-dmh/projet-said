@@ -1,0 +1,49 @@
+# FRONT REACT
+
+# Logs
+/front/logs
+/front/*.log
+/front/npm-debug.log*
+/front/yarn-debug.log*
+/front/yarn-error.log*
+/front/pnpm-debug.log*
+/front/lerna-debug.log*
+
+/front/node_modules
+/front/dist
+/front/dist-ssr
+/front/*.local
+
+# Editor directories and files
+/front/.vscode/*
+!/front/.vscode/extensions.json
+/front/.idea
+/front/*.suo
+/front/*.ntvs*
+/front/*.njsproj
+/front/*.sln
+/front/*.sw?
+
+# BACK SYMFONY
+###> symfony/framework-bundle ###
+/back/.env.local
+/back/.env.local.php
+/back/.env.*.local
+/back/config/secrets/prod/prod.decrypt.private.php
+/back/public/bundles/
+/back/var/
+/back/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/back/phpunit.xml
+/back/.phpunit.cache/
+###< phpunit/phpunit ###
+
+###> symfony/asset-mapper ###
+/back/public/assets/
+/back/assets/vendor/
+###< symfony/asset-mapper ###
+
+
+.DS_Store
