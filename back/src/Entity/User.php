@@ -6,8 +6,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use ApiPlatform\Metadata\Put;
 use App\Entity\Traits\Timestampable;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -26,7 +26,7 @@ use Symfony\Component\Serializer\Attribute\Groups;
         new GetCollection(security: "is_granted('ROLE_SUPER_ADMIN')"),
         new Get(security: "is_granted('ROLE_SUPER_ADMIN')"),
         new Post(security: "is_granted('ROLE_SUPER_ADMIN')"),
-        new Put(security: "is_granted('ROLE_SUPER_ADMIN')"),
+        new Patch(security: "is_granted('ROLE_SUPER_ADMIN')"),
         new Delete(security: "is_granted('ROLE_SUPER_ADMIN')"),
     ],
     normalizationContext: ['groups' => ['user:read']],
